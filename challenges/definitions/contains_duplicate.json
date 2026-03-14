@@ -1,0 +1,57 @@
+{
+  "id": "contains_duplicate",
+  "title": "Contains Duplicate",
+  "difficulty": "easy",
+  "category": "hash_tables",
+  "description": "Given an integer array `nums`, return `True` if any value appears at least twice in the array, and return `False` if every element is distinct.\n\n**Example 1:**\nInput: nums = [1,2,3,1]\nOutput: True\n\n**Example 2:**\nInput: nums = [1,2,3,4]\nOutput: False",
+  "starter_code": "def containsDuplicate(nums):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "nums": [
+          1,
+          2,
+          3,
+          1
+        ]
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "nums": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "nums": [
+          1,
+          1,
+          1,
+          3,
+          3,
+          4,
+          3,
+          2,
+          4,
+          2
+        ]
+      },
+      "expected": true
+    }
+  ],
+  "hints": [
+    "A naive approach checks every pair in O(n^2).",
+    "Sorting the array first makes it O(n log n).",
+    "Can you use a Hash Set to track seen numbers in O(1) time per element?"
+  ],
+  "solution": "def containsDuplicate(nums):\n    seen = set()\n    for num in nums:\n        if num in seen:\n            return True\n        seen.add(num)\n    return False",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "binary_tree_inorder",
+  "title": "Binary Tree Inorder Traversal",
+  "difficulty": "medium",
+  "category": "trees",
+  "description": "Given the root of a binary tree, return the inorder traversal of its nodes' values.\n\n**Inorder traversal**: Left \u2192 Root \u2192 Right\n\n**Example:**\n```\nInput:     1\n          / \\\n         2   3\n        / \\\n       4   5\n\nOutput: [4, 2, 5, 1, 3]\n```",
+  "starter_code": "def inorder_traversal(root):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "tree": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "expected": [
+        4,
+        2,
+        5,
+        1,
+        3
+      ]
+    },
+    {
+      "input": {
+        "tree": [
+          1
+        ]
+      },
+      "expected": [
+        1
+      ]
+    },
+    {
+      "input": {
+        "tree": []
+      },
+      "expected": []
+    },
+    {
+      "input": {
+        "tree": [
+          1,
+          null,
+          2,
+          3
+        ]
+      },
+      "expected": [
+        1,
+        3,
+        2
+      ]
+    }
+  ],
+  "hints": [
+    "Think recursively: traverse left, visit root, traverse right.",
+    "Base case: if node is None, return empty list.",
+    "Can you also solve it iteratively using a stack?"
+  ],
+  "solution": "def inorder_traversal(root):\n    result = []\n    def inorder(node):\n        if not node:\n            return\n        inorder(node.left)\n        result.append(node.val)\n        inorder(node.right)\n    inorder(root)\n    return result",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_topic": "trees",
+  "visualization": "tree_traversal",
+  "test_setup": "\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef build_tree(values):\n    if not values: return None\n    root = TreeNode(values[0])\n    queue = [root]\n    i = 1\n    while queue and i < len(values):\n        node = queue.pop(0)\n        if values[i] is not None:\n            node.left = TreeNode(values[i])\n            queue.append(node.left)\n        i += 1\n        if i < len(values) and values[i] is not None:\n            node.right = TreeNode(values[i])\n            queue.append(node.right)\n        i += 1\n    return root\n\ndef __run_test(tree):\n    root = build_tree(tree)\n    return inorder_traversal(root)\n",
+  "test_caller": "__run_test(**{})"
+}

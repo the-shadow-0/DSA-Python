@@ -1,0 +1,42 @@
+{
+  "id": "longest_substring_without_repeating_characters",
+  "title": "Longest Substring Without Repeating Characters",
+  "difficulty": "medium",
+  "category": "arrays",
+  "description": "Given a string `s`, find the length of the longest substring without repeating characters.\n\n**Example 1:**\nInput: s = \"abcabcbb\"\nOutput: 3\nExplanation: The answer is \"abc\", with the length of 3.\n\n**Example 2:**\nInput: s = \"pwwkew\"\nOutput: 3\nExplanation: The answer is \"wke\", with the length of 3.",
+  "starter_code": "def lengthOfLongestSubstring(s):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "s": "abcabcbb"
+      },
+      "expected": 3
+    },
+    {
+      "input": {
+        "s": "bbbbb"
+      },
+      "expected": 1
+    },
+    {
+      "input": {
+        "s": "pwwkew"
+      },
+      "expected": 3
+    },
+    {
+      "input": {
+        "s": ""
+      },
+      "expected": 0
+    }
+  ],
+  "hints": [
+    "Use a Sliding Window algorithm.",
+    "Keep a `left` and `right` pointer.",
+    "Use a set to track characters in the current window. If the character at the right pointer is in the set, move the left pointer until it's not."
+  ],
+  "solution": "def lengthOfLongestSubstring(s):\n    char_set = set()\n    left = 0\n    max_len = 0\n    \n    for right in range(len(s)):\n        while s[right] in char_set:\n            char_set.remove(s[left])\n            left += 1\n        char_set.add(s[right])\n        max_len = max(max_len, right - left + 1)\n        \n    return max_len",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(min(n, m))"
+}

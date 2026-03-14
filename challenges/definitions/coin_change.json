@@ -1,0 +1,47 @@
+{
+  "id": "coin_change",
+  "title": "Coin Change",
+  "difficulty": "medium",
+  "category": "dynamic_programming",
+  "description": "You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money.\n\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return `-1`.\n\n**Example 1:**\nInput: coins = [1,2,5], amount = 11\nOutput: 3\nExplanation: 11 = 5 + 5 + 1",
+  "starter_code": "def coinChange(coins, amount):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "coins": [
+          1,
+          2,
+          5
+        ],
+        "amount": 11
+      },
+      "expected": 3
+    },
+    {
+      "input": {
+        "coins": [
+          2
+        ],
+        "amount": 3
+      },
+      "expected": -1
+    },
+    {
+      "input": {
+        "coins": [
+          1
+        ],
+        "amount": 0
+      },
+      "expected": 0
+    }
+  ],
+  "hints": [
+    "This is an unbounded knapsack problem. Think Dynamic Programming.",
+    "Create an array `dp` of size `amount + 1` initialized to infinity. `dp[0]` = 0.",
+    "For each coin, iterate through all amounts from the coin's value up to `amount`."
+  ],
+  "solution": "def coinChange(coins, amount):\n    dp = [float('inf')] * (amount + 1)\n    dp[0] = 0\n    \n    for coin in coins:\n        for x in range(coin, amount + 1):\n            dp[x] = min(dp[x], dp[x - coin] + 1)\n            \n    return dp[amount] if dp[amount] != float('inf') else -1",
+  "time_complexity": "O(amount * len(coins))",
+  "space_complexity": "O(amount)"
+}

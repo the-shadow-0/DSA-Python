@@ -1,0 +1,39 @@
+{
+  "id": "valid_anagram",
+  "title": "Valid Anagram",
+  "difficulty": "easy",
+  "category": "hash_tables",
+  "description": "Given two strings `s` and `t`, return `True` if `t` is an anagram of `s`, and `False` otherwise.\nAn Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.\n\n**Example 1:**\nInput: s = \"anagram\", t = \"nagaram\"\nOutput: True\n\n**Example 2:**\nInput: s = \"rat\", t = \"car\"\nOutput: False",
+  "starter_code": "def isAnagram(s, t):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "s": "anagram",
+        "t": "nagaram"
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "s": "rat",
+        "t": "car"
+      },
+      "expected": false
+    },
+    {
+      "input": {
+        "s": "a",
+        "t": "ab"
+      },
+      "expected": false
+    }
+  ],
+  "hints": [
+    "If lengths differ, they cannot be anagrams.",
+    "You can sort both strings and compare them, but that takes O(n log n).",
+    "Instead, count the frequency of each character in both strings using a Hash Map!"
+  ],
+  "solution": "def isAnagram(s, t):\n    if len(s) != len(t): return False\n    counts = {}\n    for char in s:\n        counts[char] = counts.get(char, 0) + 1\n    for char in t:\n        if char not in counts or counts[char] == 0:\n            return False\n        counts[char] -= 1\n    return True",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(k)"
+}

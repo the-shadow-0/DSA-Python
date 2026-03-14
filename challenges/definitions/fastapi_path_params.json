@@ -1,0 +1,36 @@
+{
+  "id": "fastapi_path_params",
+  "title": "FastAPI Path Parameters",
+  "difficulty": "easy",
+  "category": "fastapi",
+  "description": "Learn how to extract dynamic values from the URL path.\n\n**Task:**\n1. Use the existing `app` instance.\n2. Create a `GET` route at `/users/{user_id}`.\n3. Ensure `user_id` is parsed strictly as an integer.\n4. Return a dictionary containing the extracted ID: `{\"user_id\": user_id}`",
+  "starter_code": "from fastapi import FastAPI\n\napp = FastAPI()\n\n# Your code here\n",
+  "test_cases": [
+    {
+      "input": {
+        "url": "/users/5"
+      },
+      "expected": {
+        "user_id": 5
+      }
+    },
+    {
+      "input": {
+        "url": "/users/102"
+      },
+      "expected": {
+        "user_id": 102
+      }
+    }
+  ],
+  "hints": [
+    "The decorator should look like `@app.get(\"/users/{user_id}\")`.",
+    "Your function needs an argument: `def get_user(user_id: int):`",
+    "Return `{\"user_id\": user_id}`"
+  ],
+  "solution": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/users/{user_id}\")\ndef get_user(user_id: int):\n    return {\"user_id\": user_id}",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "test_setup": "from fastapi.testclient import TestClient\nclient = TestClient(app)\n\ndef __run_test(url):\n    return client.get(url).json()",
+  "test_caller": "__run_test(**{})"
+}

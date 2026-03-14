@@ -1,0 +1,68 @@
+{
+  "id": "reverse_linked_list",
+  "title": "Reverse Linked List",
+  "difficulty": "easy",
+  "category": "linked_lists",
+  "description": "Given the head of a singly linked list, reverse the list and return the reversed list.\n\nThe `ListNode` class is defined as:\n```python\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n```\n\n**Example:**\n```\nInput: 1 -> 2 -> 3 -> 4 -> 5\nOutput: 5 -> 4 -> 3 -> 2 -> 1\n```",
+  "starter_code": "def reverse_list(head):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "expected": [
+        5,
+        4,
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "input": {
+        "values": [
+          1,
+          2
+        ]
+      },
+      "expected": [
+        2,
+        1
+      ]
+    },
+    {
+      "input": {
+        "values": [
+          1
+        ]
+      },
+      "expected": [
+        1
+      ]
+    },
+    {
+      "input": {
+        "values": []
+      },
+      "expected": []
+    }
+  ],
+  "hints": [
+    "Use three pointers: prev, current, and next.",
+    "At each step, reverse the current node's pointer.",
+    "prev starts as None and becomes the new head."
+  ],
+  "solution": "def reverse_list(head):\n    prev = None\n    current = head\n    while current:\n        next_node = current.next\n        current.next = prev\n        prev = current\n        current = next_node\n    return prev",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "related_topic": "linked_lists",
+  "visualization": "linked_list_reversal",
+  "test_setup": "\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef build_list(values):\n    dummy = ListNode()\n    curr = dummy\n    for v in values:\n        curr.next = ListNode(v)\n        curr = curr.next\n    return dummy.next\n\ndef list_to_array(head):\n    res = []\n    while head:\n        res.append(head.val)\n        head = head.next\n    return res\n\ndef __run_test(values):\n    head = build_list(values)\n    res_head = reverse_list(head)\n    return list_to_array(res_head)\n",
+  "test_caller": "__run_test(**{})"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "valid_parentheses",
+  "title": "Valid Parentheses",
+  "difficulty": "easy",
+  "category": "stacks",
+  "description": "Given a string containing just the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.\n\nA string is valid if:\n1. Open brackets are closed by the same type of brackets.\n2. Open brackets are closed in the correct order.\n3. Every close bracket has a corresponding open bracket.\n\n**Example:**\n```\nInput: \"({[]})\"\nOutput: True\n\nInput: \"([)]\"\nOutput: False\n```",
+  "starter_code": "def is_valid(s):\n    # Your code here\n    pass",
+  "test_cases": [
+    {"input": {"s": "()"}, "expected": true},
+    {"input": {"s": "()[]{}"}, "expected": true},
+    {"input": {"s": "(]"}, "expected": false},
+    {"input": {"s": "({[]})"}, "expected": true},
+    {"input": {"s": ""}, "expected": true},
+    {"input": {"s": "((("}, "expected": false}
+  ],
+  "hints": [
+    "Use a stack to track opening brackets.",
+    "When you see a closing bracket, check if it matches the top of the stack.",
+    "If the stack is empty at the end, the string is valid."
+  ],
+  "solution": "def is_valid(s):\n    stack = []\n    matching = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in '([{':\n            stack.append(char)\n        elif char in ')]}':\n            if not stack or stack.pop() != matching[char]:\n                return False\n    return len(stack) == 0",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_topic": "stacks",
+  "visualization": "stack_operations"
+}

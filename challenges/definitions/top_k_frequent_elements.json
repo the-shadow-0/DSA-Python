@@ -1,0 +1,64 @@
+{
+  "id": "top_k_frequent_elements",
+  "title": "Top K Frequent Elements",
+  "difficulty": "medium",
+  "category": "heaps",
+  "description": "Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.\n\n**Example 1:**\nInput: nums = [1,1,1,2,2,3], k = 2\nOutput: [1,2]\n\n**Example 2:**\nInput: nums = [1], k = 1\nOutput: [1]",
+  "starter_code": "def topKFrequent(nums, k):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "nums": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        "k": 2
+      },
+      "expected": [
+        1,
+        2
+      ]
+    },
+    {
+      "input": {
+        "nums": [
+          1
+        ],
+        "k": 1
+      },
+      "expected": [
+        1
+      ]
+    },
+    {
+      "input": {
+        "nums": [
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          6
+        ],
+        "k": 2
+      },
+      "expected": [
+        4,
+        5
+      ]
+    }
+  ],
+  "hints": [
+    "First, count the frequency of each element using a Hash Map.",
+    "To find the top K elements efficiently, you can use a Min-Heap of size K, or use Bucket Sort.",
+    "In Python, `collections.Counter(nums).most_common(k)` achieves this easily."
+  ],
+  "solution": "def topKFrequent(nums, k):\n    from collections import Counter\n    import heapq\n    counts = Counter(nums)\n    # Using a max heap approach effectively with nlargest\n    return heapq.nlargest(k, counts.keys(), key=counts.get)",
+  "time_complexity": "O(n log k)",
+  "space_complexity": "O(n)"
+}

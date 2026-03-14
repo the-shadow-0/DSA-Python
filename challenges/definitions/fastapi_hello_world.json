@@ -1,0 +1,28 @@
+{
+  "id": "fastapi_hello_world",
+  "title": "FastAPI Hello World",
+  "difficulty": "easy",
+  "category": "fastapi",
+  "description": "Create your very first FastAPI application!\n\n**Task:**\n1. Initialize a `FastAPI` instance named `app`.\n2. Create a `GET` route at the root path (`/`).\n3. The route should return exactly: `{\"message\": \"Hello FastAPI\"}`",
+  "starter_code": "from fastapi import FastAPI\n\n# Your code here\n",
+  "test_cases": [
+    {
+      "input": {
+        "url": "/"
+      },
+      "expected": {
+        "message": "Hello FastAPI"
+      }
+    }
+  ],
+  "hints": [
+    "First, create the app: `app = FastAPI()`",
+    "Then, use the decorator: `@app.get(\"/\")`",
+    "Define a simple function beneath the decorator that returns the required dictionary."
+  ],
+  "solution": "from fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/\")\ndef read_root():\n    return {\"message\": \"Hello FastAPI\"}",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "test_setup": "from fastapi.testclient import TestClient\nclient = TestClient(app)\n\ndef __run_test(url):\n    return client.get(url).json()",
+  "test_caller": "__run_test(**{})"
+}

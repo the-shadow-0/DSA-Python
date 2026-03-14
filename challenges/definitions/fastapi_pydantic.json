@@ -1,0 +1,47 @@
+{
+  "id": "fastapi_pydantic",
+  "title": "Pydantic POST Bodies",
+  "difficulty": "medium",
+  "category": "fastapi",
+  "description": "Accept and parse secure JSON payloads using Pydantic!\n\n**Task:**\n1. Create a Pydantic `BaseModel` named `Product`.\n2. It should have exactly two fields: `name` (a string) and `price` (a float).\n3. Create a `POST` route at `/products/`.\n4. The route should accept the `Product` model as the request body.\n5. Return the exact `Product` object. FastAPI will automatically convert it back to JSON!",
+  "starter_code": "from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\n# Your code here\n",
+  "test_cases": [
+    {
+      "input": {
+        "url": "/products/",
+        "json": {
+          "name": "Laptop",
+          "price": 999.99
+        }
+      },
+      "expected": {
+        "name": "Laptop",
+        "price": 999.99
+      }
+    },
+    {
+      "input": {
+        "url": "/products/",
+        "json": {
+          "name": "Mouse",
+          "price": 25.5
+        }
+      },
+      "expected": {
+        "name": "Mouse",
+        "price": 25.5
+      }
+    }
+  ],
+  "hints": [
+    "First, define the model: `class Product(BaseModel):` with `name: str` and `price: float`.",
+    "Use the `@app.post(\"/products/\")` decorator.",
+    "The endpoint should be: `def create_product(product: Product):`",
+    "If you just `return product`, FastAPI unpacks the model into JSON for the client automatically!"
+  ],
+  "solution": "from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass Product(BaseModel):\n    name: str\n    price: float\n\n@app.post(\"/products/\")\ndef create_product(product: Product):\n    return product",
+  "time_complexity": "O(1)",
+  "space_complexity": "O(1)",
+  "test_setup": "from fastapi.testclient import TestClient\nclient = TestClient(app)\n\ndef __run_test(url, json):\n    return client.post(url, json=json).json()",
+  "test_caller": "__run_test(**{})"
+}

@@ -1,0 +1,87 @@
+{
+  "id": "number_of_islands",
+  "title": "Number of Islands",
+  "difficulty": "medium",
+  "category": "graphs",
+  "description": "Given an `m x n` 2D binary grid `grid` which represents a map of `'1'`s (land) and `'0'`s (water), return the number of islands.\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically.\n\n**Example:**\nInput: grid = [\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"1\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"1\",\"1\"]\n]\nOutput: 3",
+  "starter_code": "def numIslands(grid):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "grid": [
+          [
+            "1",
+            "1",
+            "1",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "expected": 1
+    },
+    {
+      "input": {
+        "grid": [
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1",
+            "1"
+          ]
+        ]
+      },
+      "expected": 3
+    }
+  ],
+  "hints": [
+    "Treat the 2D grid as an undirected graph where there is an edge between two horizontally or vertically adjacent nodes of value '1'.",
+    "Iterate over the entire array. When you hit a '1', increment your island count, and launch a DFS/BFS to sink everything connected to it (change '1' to '0')."
+  ],
+  "solution": "def numIslands(grid):\n    if not grid: return 0\n    islands = 0\n    rows, cols = len(grid), len(grid[0])\n    \n    def dfs(r, c):\n        if r < 0 or c < 0 or r >= rows or c >= cols or grid[r][c] == '0':\n            return\n        grid[r][c] = '0' # sink it\n        dfs(r+1, c)\n        dfs(r-1, c)\n        dfs(r, c+1)\n        dfs(r, c-1)\n        \n    for r in range(rows):\n        for c in range(cols):\n            if grid[r][c] == '1':\n                islands += 1\n                dfs(r, c)\n    \n    return islands",
+  "time_complexity": "O(m * n)",
+  "space_complexity": "O(m * n) for call stack"
+}

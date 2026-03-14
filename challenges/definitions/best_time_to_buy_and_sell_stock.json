@@ -1,0 +1,53 @@
+{
+  "id": "best_time_to_buy_and_sell_stock",
+  "title": "Best Time to Buy and Sell Stock",
+  "difficulty": "easy",
+  "category": "arrays",
+  "description": "You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`th day.\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit. If no profit is possible, return `0`.\n\n**Example:**\nInput: prices = [7,1,5,3,6,4]\nOutput: 5\nExplanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.",
+  "starter_code": "def maxProfit(prices):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "prices": [
+          7,
+          1,
+          5,
+          3,
+          6,
+          4
+        ]
+      },
+      "expected": 5
+    },
+    {
+      "input": {
+        "prices": [
+          7,
+          6,
+          4,
+          3,
+          1
+        ]
+      },
+      "expected": 0
+    },
+    {
+      "input": {
+        "prices": [
+          2,
+          4,
+          1
+        ]
+      },
+      "expected": 2
+    }
+  ],
+  "hints": [
+    "You need to find the largest peak following the smallest valley.",
+    "Keep track of the `min_price` seen so far.",
+    "At each day, the potential profit is `price - min_price`. Update `max_profit` if it's strictly greater."
+  ],
+  "solution": "def maxProfit(prices):\n    min_price = float('inf')\n    max_profit = 0\n    for price in prices:\n        if price < min_price:\n            min_price = price\n        elif price - min_price > max_profit:\n            max_profit = price - min_price\n    return max_profit",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)"
+}

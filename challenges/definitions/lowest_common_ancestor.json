@@ -1,0 +1,72 @@
+{
+  "id": "lowest_common_ancestor",
+  "title": "Lowest Common Ancestor",
+  "difficulty": "medium",
+  "category": "trees",
+  "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\n\nThe lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow a node to be a descendant of itself).",
+  "starter_code": "def lowestCommonAncestor(root, p, q):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "tree": [
+          6,
+          2,
+          8,
+          0,
+          4,
+          7,
+          9,
+          null,
+          null,
+          3,
+          5
+        ],
+        "p": 2,
+        "q": 8
+      },
+      "expected": 6
+    },
+    {
+      "input": {
+        "tree": [
+          6,
+          2,
+          8,
+          0,
+          4,
+          7,
+          9,
+          null,
+          null,
+          3,
+          5
+        ],
+        "p": 2,
+        "q": 4
+      },
+      "expected": 2
+    },
+    {
+      "input": {
+        "tree": [
+          2,
+          1
+        ],
+        "p": 2,
+        "q": 1
+      },
+      "expected": 2
+    }
+  ],
+  "hints": [
+    "Take advantage of the Binary Search Tree property.",
+    "If both `p` and `q` are greater than `root`, the LCA must be in the right subtree.",
+    "If both `p` and `q` are less than `root`, the LCA must be in the left subtree.",
+    "If one is less and the other is greater (or if one is equal to root), the current root IS the lowest common ancestor!"
+  ],
+  "solution": "def lowestCommonAncestor(root, p, q):\n    while root:\n        if p.val < root.val and q.val < root.val:\n            root = root.left\n        elif p.val > root.val and q.val > root.val:\n            root = root.right\n        else:\n            return root\n    return None",
+  "time_complexity": "O(h)",
+  "space_complexity": "O(1)",
+  "test_setup": "class TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef build_tree(values):\n    if not values: return None\n    root = TreeNode(values[0])\n    queue = [root]\n    i = 1\n    while queue and i < len(values):\n        node = queue.pop(0)\n        if values[i] is not None:\n            node.left = TreeNode(values[i])\n            queue.append(node.left)\n        i += 1\n        if i < len(values) and values[i] is not None:\n            node.right = TreeNode(values[i])\n            queue.append(node.right)\n        i += 1\n    return root\n\ndef __run_test(tree, p, q):\n    root = build_tree(tree)\n    # The solution expects TreeNode inputs for p and q.\n    # In python test setup, we can wrap the actual solution to just accept values\n    # But since the standard signature takes Node objects in leetcode, we mock it:\n    class Stub:\n        def __init__(self, v): self.val = v\n    \n    # In the provided solution above, we access .val\n    # So we just pass Stub objects.\n    res = lowestCommonAncestor(root, Stub(p), Stub(q))\n    return res.val if res else None",
+  "test_caller": "__run_test(**{})"
+}

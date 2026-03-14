@@ -1,0 +1,23 @@
+{
+  "id": "binary_search",
+  "title": "Binary Search",
+  "difficulty": "easy",
+  "category": "searching",
+  "description": "Given an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, then return its index. Otherwise, return `-1`.\n\nYou must write an algorithm with `O(log n)` runtime complexity.\n\n**Example 1:**\n```\nInput: nums = [-1,0,3,5,9,12], target = 9\nOutput: 4\nExplanation: 9 exists in nums and its index is 4\n```\n\n**Example 2:**\n```\nInput: nums = [-1,0,3,5,9,12], target = 2\nOutput: -1\nExplanation: 2 does not exist in nums so return -1\n```",
+  "starter_code": "def search(nums, target):\n    # Your code here\n    pass",
+  "test_cases": [
+    {"input": {"nums": [-1,0,3,5,9,12], "target": 9}, "expected": 4},
+    {"input": {"nums": [-1,0,3,5,9,12], "target": 2}, "expected": -1},
+    {"input": {"nums": [5], "target": 5}, "expected": 0},
+    {"input": {"nums": [2, 5], "target": 0}, "expected": -1}
+  ],
+  "hints": [
+    "Since the array is sorted, can you eliminate half of the elements in each step?",
+    "Keep track of a `left` and `right` pointer.",
+    "Calculate `mid = (left + right) // 2`. If `nums[mid]` is less than the target, search the right half."
+  ],
+  "solution": "def search(nums, target):\n    left, right = 0, len(nums) - 1\n    while left <= right:\n        mid = (left + right) // 2\n        if nums[mid] == target:\n            return mid\n        elif nums[mid] < target:\n            left = mid + 1\n        else:\n            right = mid - 1\n    return -1",
+  "time_complexity": "O(log n)",
+  "space_complexity": "O(1)",
+  "related_topic": "searching"
+}

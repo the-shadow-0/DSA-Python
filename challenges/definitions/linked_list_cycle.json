@@ -1,0 +1,51 @@
+{
+  "id": "linked_list_cycle",
+  "title": "Linked List Cycle",
+  "difficulty": "easy",
+  "category": "linked_lists",
+  "description": "Given `head`, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer.\n\nReturn `True` if there is a cycle in the linked list. Otherwise, return `False`.",
+  "starter_code": "def hasCycle(head):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "values": [
+          3,
+          2,
+          0,
+          -4
+        ],
+        "pos": 1
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "values": [
+          1,
+          2
+        ],
+        "pos": 0
+      },
+      "expected": true
+    },
+    {
+      "input": {
+        "values": [
+          1
+        ],
+        "pos": -1
+      },
+      "expected": false
+    }
+  ],
+  "hints": [
+    "You can use a Hash Set to track visited nodes. If you see a node again, there's a cycle.",
+    "To achieve O(1) space, use Floyd's Tortoise and Hare algorithm.",
+    "Have a `slow` pointer move one step, and a `fast` pointer move two steps. If they ever intersect, there's a cycle."
+  ],
+  "solution": "def hasCycle(head):\n    slow = fast = head\n    while fast and fast.next:\n        slow = slow.next\n        fast = fast.next.next\n        if slow == fast:\n            return True\n    return False",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)",
+  "test_setup": "class ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\ndef build_cycle_list(values, pos):\n    if not values: return None\n    head = ListNode(values[0])\n    curr = head\n    cycle_node = head if pos == 0 else None\n    for i in range(1, len(values)):\n        curr.next = ListNode(values[i])\n        curr = curr.next\n        if i == pos: cycle_node = curr\n    if pos != -1: curr.next = cycle_node\n    return head\n\ndef __run_test(values, pos):\n    head = build_cycle_list(values, pos)\n    return hasCycle(head)",
+  "test_caller": "__run_test(**{})"
+}

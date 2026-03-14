@@ -1,0 +1,24 @@
+{
+  "id": "two_sum",
+  "title": "Two Sum",
+  "difficulty": "easy",
+  "category": "arrays",
+  "description": "Given an array of integers `nums` and an integer `target`, return the indices of the two numbers that add up to `target`.\n\nYou may assume that each input has **exactly one solution**, and you may not use the same element twice.\n\n**Example:**\n```\nInput: nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]\nExplanation: nums[0] + nums[1] = 2 + 7 = 9\n```",
+  "starter_code": "def two_sum(nums, target):\n    # Your code here\n    pass",
+  "test_cases": [
+    {"input": {"nums": [2, 7, 11, 15], "target": 9}, "expected": [0, 1]},
+    {"input": {"nums": [3, 2, 4], "target": 6}, "expected": [1, 2]},
+    {"input": {"nums": [3, 3], "target": 6}, "expected": [0, 1]},
+    {"input": {"nums": [1, 5, 3, 7], "target": 8}, "expected": [1, 2]}
+  ],
+  "hints": [
+    "A brute force approach would check every pair — O(n²).",
+    "Can you use a hash map to find the complement in O(1)?",
+    "For each number, check if (target - number) is already in your map."
+  ],
+  "solution": "def two_sum(nums, target):\n    seen = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in seen:\n            return [seen[complement], i]\n        seen[num] = i\n    return []",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(n)",
+  "related_topic": "hash_tables",
+  "visualization": "hash_table_lookup"
+}

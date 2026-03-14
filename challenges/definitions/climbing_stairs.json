@@ -1,0 +1,42 @@
+{
+  "id": "climbing_stairs",
+  "title": "Climbing Stairs",
+  "difficulty": "easy",
+  "category": "dynamic_programming",
+  "description": "You are climbing a staircase. It takes `n` steps to reach the top. Each time you can either climb `1` or `2` steps. In how many distinct ways can you climb to the top?\n\n**Example:**\nInput: n = 3\nOutput: 3\nExplanation: There are three ways to climb to the top:\n1. 1 step + 1 step + 1 step\n2. 1 step + 2 steps\n3. 2 steps + 1 step",
+  "starter_code": "def climbStairs(n):\n    # Your code here\n    pass",
+  "test_cases": [
+    {
+      "input": {
+        "n": 2
+      },
+      "expected": 2
+    },
+    {
+      "input": {
+        "n": 3
+      },
+      "expected": 3
+    },
+    {
+      "input": {
+        "n": 5
+      },
+      "expected": 8
+    },
+    {
+      "input": {
+        "n": 10
+      },
+      "expected": 89
+    }
+  ],
+  "hints": [
+    "To reach step n, you could only have come from step `n-1` or `n-2`.",
+    "Therefore, `ways(n) = ways(n-1) + ways(n-2)`.",
+    "This is exactly like the Fibonacci sequence!"
+  ],
+  "solution": "def climbStairs(n):\n    if n <= 2:\n        return n\n    a, b = 1, 2\n    for _ in range(3, n + 1):\n        a, b = b, a + b\n    return b",
+  "time_complexity": "O(n)",
+  "space_complexity": "O(1)"
+}
