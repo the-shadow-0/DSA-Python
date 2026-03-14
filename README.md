@@ -17,7 +17,7 @@
 
 ## 🎨 Premium Experience
 
-![Landing Page](https://github.com/the-shadow-0/DSA-Python/tree/main/assets/screenshots/home.png)
+![Landing Page](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/home.png)
 
 ---
 
@@ -50,7 +50,7 @@ DSA_python/
 
 ## 📚 Curriculum Deep-Dive
 
-![Curriculum Explorer](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/learn.png)
+![Curriculum Explorer](assets/screenshots/learn.png)
 
 ### 🟢 Phase 1 — Foundations & DS
 - **Asymptotic Analysis**: Big O, Time & Space metrics.
@@ -70,7 +70,7 @@ DSA_python/
 
 ## 🧪 Industrial Challenge Workspace
 
-![Challenge Workspace](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/challenge_success.png)
+![Challenge Workspace](assets/screenshots/challenge_success.png)
 
 - **Execution Sandbox**: Subprocess-based secure environment.
 - **Live Feedback**: Instant grading against comprehensive test cases.
