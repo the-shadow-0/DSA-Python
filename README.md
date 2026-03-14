@@ -116,9 +116,8 @@ Licensed under the [MIT License](LICENSE).
   
 ### ⭐ Star this repo if it helps you master Pythonic DSA!
   
-### Built with ❤️ for the developer community • Open Source • MIT License
+### Built with ❤️ for the developer community • Open Source
   
-<br>
+
 </div>
 
----
