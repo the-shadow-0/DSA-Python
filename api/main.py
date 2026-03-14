@@ -376,7 +376,7 @@ async def evaluate_challenge(request: ChallengeEvalRequest):
             args = ", ".join(repr(v) for v in tc["input"].values())
             test_code += f"result = {func_name}({args})\n"
 
-        test_code += f"print(repr(result))\n"
+        test_code += f"print('__RESULT_START__' + repr(result) + '__RESULT_END__')\n"
 
         try:
             with tempfile.NamedTemporaryFile(mode='w', suffix='.py',
@@ -395,15 +395,19 @@ async def evaluate_challenge(request: ChallengeEvalRequest):
                 results.append(TestResult(
                     input=tc["input"],
                     expected=tc["expected"],
-                    actual=proc.stderr[:500],
+                    actual=proc.stderr[:1000],
                     passed=False,
                 ))
             else:
-                actual = proc.stdout.strip()
-                try:
-                    actual_val = eval(actual)
-                except Exception:
-                    actual_val = actual
+                stdout = proc.stdout
+                if '__RESULT_START__' in stdout and '__RESULT_END__' in stdout:
+                    actual_raw = stdout.split('__RESULT_START__')[1].split('__RESULT_END__')[0].strip()
+                    try:
+                        actual_val = eval(actual_raw)
+                    except Exception:
+                        actual_val = actual_raw
+                else:
+                    actual_val = stdout.strip()
 
                 passed = actual_val == tc["expected"]
                 results.append(TestResult(

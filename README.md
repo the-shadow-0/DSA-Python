@@ -2,16 +2,22 @@
 
 # ⚡ DSA Python
 
-### Master Data Structures & Algorithms — The Visual Way
+### Master Data Structures & Algorithms — The Visual & Interactive Way
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://python.org)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org)
 [![Tests](https://img.shields.io/badge/tests-53%20passing-brightgreen.svg)](#-running-tests)
 
-*An open-source platform that teaches DSA through visual explanations, Python implementations, and interactive coding challenges.*
+*An elite open-source platform designed to transform your understanding of DSA through high-fidelity visual explanations, multiple Python implementations, and a professional-grade challenge workspace.*
 
 </div>
+
+---
+
+## 🎨 Premium Experience
+
+![Landing Page](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/home.png)
 
 ---
 
@@ -19,201 +25,91 @@
 
 | Feature | Description |
 |---------|-------------|
-| 📊 **Algorithm Visualizer** | Step-by-step animated sorting with play/pause/step controls |
-| 🐍 **Python Implementations** | 25+ clean, commented implementations with complexity analysis |
-| 🎯 **Interactive Challenges** | Write code, run tests, get instant grading & feedback |
-| 📚 **Structured Curriculum** | From Big O basics to advanced graph algorithms |
-| 📈 **Progress Dashboard** | Track your learning journey across all topics |
-| 🌍 **Real-World Examples** | See how data structures power real systems |
+| 🧬 **Quad-Implementation Mastery** | Every topic includes 4 distinct Python solutions (Iterative, Recursive, Parallel, Optimized). |
+| 📊 **Elite Algorithm Visualizer** | Step-by-step animated sorting with a sleek, dark-mode glassmorphism UI. |
+| 🐍 **Deep-Dive Curriculum** | 31+ modules covering everything from Big O basics to Advanced Segment Trees. |
+| 🎯 **Interactive Challenges**| Industry-standard coding environment with real-time grading and helpful hints. |
+| 📈 **Elite Dashboard** | Monitor your mastery progress across foundations, DS, and complex algorithms. |
+| ⚡ **FastAPI Powered** | Blazing fast backend engine for code execution and content delivery. |
 
 ---
 
 ## 🏗️ Architecture
 
-```
+```text
 DSA_python/
-├── 🐍 algorithms/          # Python algorithm library
-│   ├── foundations/         # Big O, complexity analysis
-│   ├── data_structures/     # Arrays, linked lists, trees, graphs...
-│   ├── sorting/             # Bubble, selection, merge, quick, heap sort
-│   ├── searching/           # Linear search, binary search
-│   ├── graph_algorithms/    # BFS, DFS, Dijkstra, topological sort
-│   ├── dynamic_programming/ # Fibonacci, knapsack, LCS, coin change
-│   ├── advanced/            # Trie, segment tree, union-find
-│   └── tests/               # 53 comprehensive tests
-├── ⚡ api/                  # FastAPI backend
-│   └── main.py              # REST API (execute, evaluate, curriculum)
-├── 🎯 challenges/           # Coding challenge definitions
-│   └── definitions/         # JSON problem specs with test cases
-├── 📖 content/              # Curriculum markdown content
-├── 🎨 frontend/             # Next.js + Tailwind CSS
-│   └── src/app/
-│       ├── page.tsx          # Landing page
-│       ├── learn/            # Curriculum explorer & topic viewer
-│       ├── challenges/       # Challenge browser & workspace
-│       ├── visualizer/       # Sorting algorithm visualizer
-│       └── dashboard/        # Progress tracking
-├── docker-compose.yml
-├── LICENSE
-└── README.md
+├── 🐍 algorithms/          # Core Logic Library
+├── ⚡ api/                  # FastAPI Backend Engine
+├── 🎯 challenges/           # Challenge definitions & test suites
+├── 📖 content/              # Master-level Markdown curriculum (Wave 5)
+├── 🎨 frontend/             # Next.js 15 + Tailwind CSS + Glassmorphism
+└── 📁 assets/screenshots    # High-fidelity project visuals
 ```
 
 ---
 
-## 🚀 Quick Start
+## 📚 Curriculum Deep-Dive
 
-### Prerequisites
+![Curriculum Explorer](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/learn.png)
 
+### 🟢 Phase 1 — Foundations & DS
+- **Asymptotic Analysis**: Big O, Time & Space metrics.
+- **Linear Structures**: Elite Arrays, Doubly Linked Lists, Thread-safe Stacks/Queues.
+- **Hierarchical Structures**: AVL Trees, Heaps, Priority Queues.
+
+### 🟡 Phase 2 — Algorithms
+- **Sort & Search**: Heap Sort, Quick Sort, Binary/Interpolation Search.
+- **Optimization**: Dynamic Programming (Bitmask/Rolling), Greedy Strategies.
+- **Graph Theory**: BFS/DFS, Dijkstra, Bellman-Ford, A* Search.
+
+### 🔴 Phase 3 — Advanced Systems
+- **Strings & Ranges**: Tries, Segment Trees, Fenwick Trees.
+- **FastAPI Ecosystem**: RESTful design, Dependency Injection, Pydantic Mastery.
+
+---
+
+## 🧪 Industrial Challenge Workspace
+
+![Challenge Workspace](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/challenge_success.png)
+
+- **Execution Sandbox**: Subprocess-based secure environment.
+- **Live Feedback**: Instant grading against comprehensive test cases.
+- **Guided Learning**: Progressive hints for every challenge.
+
+---
+
+## 🚀 Getting Started
+
+### 1. Requirements
 - Python 3.10+
 - Node.js 18+
-- npm
 
-### 1. Clone & Install
-
+### 2. Setup
 ```bash
-git clone https://github.com/your-username/DSA_python.git
-cd DSA_python
+git clone https://github.com/the-shadow-0/DSA-Python.git
+cd DSA-Python
 
-# Install Python dependencies
-pip install fastapi uvicorn pytest
+# Install Backend
+pip install -r api/requirements.txt
 
-# Install frontend dependencies
-cd frontend && npm install && cd ..
+# Install Frontend
+cd frontend && npm install
 ```
 
-### 2. Start the API
-
+### 3. Launch
 ```bash
-cd api
-uvicorn main:app --reload --port 8000
-```
+# Terminal 1: API
+cd api && uvicorn main:app --port 8000
 
-### 3. Start the Frontend
-
-```bash
-cd frontend
-npm run dev
-```
-
-Visit **http://localhost:3000** 🎉
-
----
-
-## 📚 Curriculum
-
-### 🟢 Level 1 — Beginner
-- Big O Notation & Complexity Analysis
-- Arrays & Array Operations
-- Linked Lists
-- Stacks & Queues
-- Hash Tables
-- Linear & Binary Search
-
-### 🟡 Level 2 — Intermediate
-- Trees & Binary Search Trees
-- Heaps & Priority Queues
-- Graphs
-- Sorting Algorithms (Bubble → Quick Sort)
-- Recursion & Divide and Conquer
-- Greedy Algorithms
-- Dynamic Programming
-- Graph Algorithms (BFS, DFS, Dijkstra)
-
-### 🔴 Level 3 — Advanced
-- Tries (Prefix Trees)
-- Segment Trees
-- Union-Find (Disjoint Sets)
-- Algorithm Optimization Techniques
-
----
-
-## 🧪 Running Tests
-
-```bash
-# Run all 53 algorithm tests
-python -m pytest algorithms/tests/ -v
-
-# Run specific test suites
-python -m pytest algorithms/tests/test_sorting.py -v
-python -m pytest algorithms/tests/test_data_structures.py -v
-python -m pytest algorithms/tests/test_graph_algorithms.py -v
-python -m pytest algorithms/tests/test_dynamic_programming.py -v
-```
-
----
-
-## 🔌 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/curriculum` | List all learning modules |
-| `GET` | `/api/topics/{slug}` | Get topic content |
-| `GET` | `/api/challenges` | List challenges (filter by difficulty) |
-| `GET` | `/api/challenges/{id}` | Get challenge details |
-| `POST` | `/api/execute` | Execute Python code |
-| `POST` | `/api/evaluate` | Grade challenge submission |
-| `GET` | `/api/progress` | Get user progress |
-| `POST` | `/api/progress` | Update progress |
-
----
-
-## 🎯 Challenges
-
-| Challenge | Difficulty | Category |
-|-----------|-----------|----------|
-| Two Sum | 🟢 Easy | Arrays / Hash Tables |
-| Valid Parentheses | 🟢 Easy | Stacks |
-| Reverse Linked List | 🟢 Easy | Linked Lists |
-| Merge Sorted Arrays | 🟢 Easy | Arrays |
-| Binary Tree Inorder | 🟡 Medium | Trees |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Here's how:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/new-algorithm`)
-3. Add your implementation with tests
-4. Submit a pull request
-
-### Adding a New Algorithm
-
-1. Create a file in the appropriate `algorithms/` subdirectory
-2. Include docstrings, step-by-step comments, and a `_traced` version
-3. Add tests in `algorithms/tests/`
-4. Add curriculum content in `content/`
-
-### Adding a New Challenge
-
-Create a JSON file in `challenges/definitions/` following the schema:
-```json
-{
-  "id": "your_challenge",
-  "title": "Your Challenge",
-  "difficulty": "easy|medium|hard",
-  "category": "arrays|stacks|trees|...",
-  "description": "Problem description...",
-  "starter_code": "def solve():\n    pass",
-  "test_cases": [{"input": {...}, "expected": ...}],
-  "hints": ["Hint 1", "Hint 2"],
-  "solution": "def solve():\n    ..."
-}
+# Terminal 2: UI
+cd frontend && npm run dev
 ```
 
 ---
 
 ## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
+Licensed under the [MIT License](LICENSE).
 
 <div align="center">
-
-**Built with ❤️ for the developer community**
-
-⭐ Star this repo if it helps you learn DSA!
-
+⭐ Star this repo if it helps you master Pythonic DSA!
 </div>
