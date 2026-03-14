@@ -17,7 +17,7 @@
 
 ## 🎨 Premium Experience
 
-![Landing Page](file:///home/ai-creator/Bureau/Github-Projects/DSA_python/assets/screenshots/home.png)
+![Landing Page](https://github.com/the-shadow-0/DSA-Python/tree/main/assets/screenshots/home.png)
 
 ---
 
