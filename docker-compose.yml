@@ -20,3 +20,4 @@ services:
       - ./algorithms:/app/algorithms
       - ./challenges:/app/challenges
       - ./content:/app/content
+
